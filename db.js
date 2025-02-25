@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 // Define MongoDB connection URL
-const mongoURL = 'mongodb://localhost:27017/Haritha'; // You can replace 'Haritha' with any database name
+//const mongoURL = process.env.db_url_local// You can replace 'Haritha' with any database name
+const mongoURL = process.env.db_url;
 
 // Establish connection
 mongoose.connect(mongoURL)
@@ -26,3 +27,4 @@ db.on('disconnected', () => {
 
 // Export the database connection
 module.exports = db;
+
